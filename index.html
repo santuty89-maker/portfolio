@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santhiya P | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f2ff;
+  --ink: #1f1a3d;
+  --muted: #5d5883;
+  --glass: rgba(255,255,255,.62);
+  --glass-line: rgba(255,255,255,.9);
+  --shadow: 0 10px 40px rgba(90,70,160,.14);
+  --accent: #6b4de6;
+  --accent2: #e8557f;
+  --blob1: #c9b6ff; --blob2: #ffc9b8; --blob3: #b8f0e0;
+  --dot: rgba(107,77,230,.16);
+  --head: "Bricolage Grotesque", "Trebuchet MS", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #130f2b; --ink: #f2efff; --muted: #b3aed6;
+    --glass: rgba(35,28,74,.6); --glass-line: rgba(255,255,255,.12);
+    --shadow: 0 10px 40px rgba(0,0,0,.35);
+    --accent: #a793ff; --accent2: #ff86a8;
+    --blob1: #4b32b8; --blob2: #a3395a; --blob3: #1f7d6c;
+    --dot: rgba(167,147,255,.16);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100%; color: var(--ink); background: var(--bg);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.65;
+  position: relative; overflow-x: hidden;
+}
+/* Aesthetic background: dot grid + soft blurred colour blobs */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2;
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38rem 32rem at 8% 6%, var(--blob1), transparent 65%),
+    radial-gradient(34rem 30rem at 95% 22%, var(--blob2), transparent 65%),
+    radial-gradient(36rem 30rem at 30% 100%, var(--blob3), transparent 65%);
+  opacity: .75; filter: blur(30px);
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--accent2); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+h1, h2, h3 { font-family: var(--head); margin: 0; line-height: 1.15; }
+
+/* Top nav */
+.topnav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; gap: 1rem; flex-wrap: wrap; }
+.logo { font-family: var(--head); font-weight: 800; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+.logo span { color: var(--accent2); }
+.links { display: flex; gap: .4rem 1.4rem; flex-wrap: wrap; }
+.links a { color: var(--ink); text-decoration: none; font-weight: 500; padding: .2rem 0; border-bottom: 2px solid transparent; }
+.links a:hover { border-color: var(--accent2); }
+
+/* Hero */
+.hero { padding: 4rem 0 3.5rem; }
+.hero .hi { display: inline-block; background: var(--glass); border: 1px solid var(--glass-line); padding: .35rem 1rem; border-radius: 999px; color: var(--muted); font-size: .95rem; box-shadow: var(--shadow); }
+.hero h1 { font-size: clamp(3rem, 10vw, 5.75rem); font-weight: 800; letter-spacing: -.03em; margin: 1.25rem 0 .75rem;
+  background: linear-gradient(100deg, var(--accent) 10%, var(--accent2) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .title { font-family: var(--head); font-weight: 600; font-size: clamp(1.2rem, 3vw, 1.6rem); margin: 0 0 1rem; }
+.hero p { max-width: 40rem; color: var(--muted); margin: 0 0 1.75rem; }
+.hero p.title { color: var(--ink); margin: 0 0 1rem; }
+.btns { display: flex; gap: .8rem; flex-wrap: wrap; }
+.btn { display: inline-block; padding: .75rem 1.5rem; border-radius: 999px; font-weight: 500; text-decoration: none; }
+.btn.primary { background: linear-gradient(100deg, var(--accent), var(--accent2)); color: #fff; box-shadow: var(--shadow); }
+.btn.ghost { background: var(--glass); border: 1px solid var(--glass-line); color: var(--ink); }
+.btn:hover { filter: brightness(1.06); }
+
+/* Sections */
+section { padding: 3.5rem 0 1rem; }
+section > h2 { font-size: clamp(1.7rem, 4vw, 2.2rem); margin-bottom: 1.75rem; }
+section > h2::after { content: ""; display: block; width: 3.2rem; height: 4px; border-radius: 4px; margin-top: .7rem; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+.card { background: var(--glass); border: 1px solid var(--glass-line); border-radius: 18px; box-shadow: var(--shadow); padding: 1.6rem 1.7rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+/* About */
+.about { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.5rem; }
+.about p { margin: 0 0 1rem; }
+.about p:last-child { margin: 0; }
+.edu h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.edu p { margin: 0 0 1rem; color: var(--muted); font-size: .98rem; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1.25rem; }
+.skills h3 { font-size: 1.1rem; margin-bottom: .8rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.chips li { padding: .25rem .8rem; border-radius: 999px; font-size: .92rem; border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem; }
+.project { display: flex; flex-direction: column; }
+.project .date { color: var(--accent2); font-weight: 500; font-size: .92rem; margin: 0 0 .4rem; }
+.project h3 { font-size: 1.3rem; margin-bottom: .8rem; }
+.project ul { margin: 0 0 1.1rem; padding-left: 1.15rem; color: var(--muted); font-size: .98rem; }
+.project li + li { margin-top: .35rem; }
+.project ul.chips { padding-left: 0; margin-top: auto; margin-bottom: 0; }
+.project .chips li { border-color: var(--glass-line); background: var(--glass); color: var(--ink); font-size: .85rem; margin: 0; }
+.project a.visit { display: inline-block; margin-top: 1rem; font-weight: 500; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.25rem; }
+.contact .card { padding: 1.3rem 1.5rem; }
+.contact span { display: block; color: var(--muted); font-size: .9rem; }
+.contact a { overflow-wrap: anywhere; font-weight: 500; }
+
+footer { text-align: center; padding: 3rem 0; color: var(--muted); font-size: .95rem; }
+
+@media (max-width: 44rem) {
+  .hero { padding: 2.5rem 0 2rem; }
+  .about { grid-template-columns: 1fr; }
+  section { padding-top: 2.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="topnav" aria-label="Page sections">
+    <a class="logo" href="#top">Santhiya<span>.</span></a>
+    <div class="links">
+      <a href="#about">About me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <span class="hi">Hello, I'm</span>
+    <h1>Santhiya P</h1>
+    <p class="title">MCA graduate in data and machine learning</p>
+    <p>I turn raw data into useful things: recommendation systems, study trackers and beginner-friendly tech articles. Based in Thoothukudi, Tamil Nadu.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About me</h2>
+      <div class="about">
+        <div class="card">
+          <p>I hold a Master of Computer Applications with a strong foundation in Python and SQL. I enjoy data cleaning, data analysis and database management, and I have hands-on experience in machine learning, image processing and predictive modelling.</p>
+          <p>I built an Android application that gives real-time, data-driven recommendations, and I am currently sharpening my Excel skills.</p>
+        </div>
+        <div class="card edu">
+          <h3>Master of Computer Application</h3>
+          <p>Manonmaniam Sundaranar University, 2026<br>CGPA 8.24</p>
+          <h3>Bachelor of Computer Application</h3>
+          <p>Govindammal Aditanar College for Women, 2023<br>CGPA 8.03</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="card"><h3>Programming</h3><ul class="chips"><li>Python</li><li>SQL</li></ul></div>
+        <div class="card"><h3>Data</h3><ul class="chips"><li>Data cleaning</li><li>Data analysis</li><li>Database management</li><li>Excel</li></ul></div>
+        <div class="card"><h3>Machine learning</h3><ul class="chips"><li>Basic models</li><li>Image processing</li><li>Predictive modelling</li></ul></div>
+        <div class="card"><h3>Web</h3><ul class="chips"><li>HTML</li><li>CSS</li><li>Streamlit</li></ul></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="card project">
+          <p class="date">Aug 2025 to Nov 2025</p>
+          <h3>Mood Based Music Recommender System</h3>
+          <ul>
+            <li>Built an ML-based music recommendation system using facial emotion detection.</li>
+            <li>Trained the model on a Roboflow Universe dataset with preprocessing and feature extraction.</li>
+            <li>Applied classification algorithms to predict emotions and generate personalised recommendations.</li>
+            <li>Developed a Streamlit web app with SQL integration for real-time interaction and data management.</li>
+          </ul>
+          <ul class="chips"><li>Python</li><li>Machine learning</li><li>Streamlit</li><li>SQL</li></ul>
+        </article>
+
+        <article class="card project">
+          <p class="date">Jan 2026 to Mar 2026</p>
+          <h3>Study Guard</h3>
+          <ul>
+            <li>Developed an app to track study activities, tasks and user productivity.</li>
+            <li>Designed a SQL database to manage users, schedules and study session data.</li>
+            <li>Used SQL queries (JOINs, aggregations) to analyse study patterns and performance.</li>
+            <li>Enabled real-time tracking and data-driven insights for better study planning.</li>
+          </ul>
+          <ul class="chips"><li>SQL</li><li>Database design</li><li>Data analysis</li></ul>
+        </article>
+
+        <article class="card project">
+          <p class="date">Sep 2026</p>
+          <h3>Technical Content Creator and Blogger</h3>
+          <ul>
+            <li>Publish articles on computer science, programming, AI and final-year project ideas.</li>
+            <li>Research technical topics and turn them into beginner-friendly articles.</li>
+            <li>Maintain the website and optimise articles for search visibility.</li>
+          </ul>
+          <ul class="chips"><li>Writing</li><li>AI</li><li>SEO</li></ul>
+          <a class="visit" href="https://newtechwithai.blogspot.com/">Visit my blog</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="card"><span>Email</span><a href="mailto:santhiyap2302@gmail.com">santhiyap2302@gmail.com</a></div>
+        <div class="card"><span>Phone</span><a href="tel:+917871330708">+91 78713 30708</a></div>
+        <div class="card"><span>LinkedIn</span><a href="https://www.linkedin.com/in/santhiya-p-780443396">linkedin.com/in/santhiya-p</a></div>
+        <div class="card"><span>Blog</span><a href="https://newtechwithai.blogspot.com/">newtechwithai.blogspot.com</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Santhiya P</footer>
+</div>
+</body>
+</html>
